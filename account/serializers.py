@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from .helpers import send_spam
 
 from .models import User
 
@@ -22,4 +23,6 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         return email
     
     def create(self, validated_data):
+        send_spam(User)
         return User.objects.create_user(**validated_data)
+    
