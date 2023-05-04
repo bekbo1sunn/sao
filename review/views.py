@@ -29,7 +29,7 @@ class FavoriteViewSet(mixins.CreateModelMixin,
                       GenericViewSet):
     queryset = Favorite.objects.all()
     serializer_class = FavoriteSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAuthor]
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)
