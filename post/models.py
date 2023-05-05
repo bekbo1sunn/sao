@@ -6,7 +6,7 @@ from account.models import User
 # User = get_user_model()
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
@@ -20,5 +20,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
     
     

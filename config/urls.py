@@ -20,8 +20,6 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from review.views import toggle_like
 
-from django.contrib.auth import views as auth_views
-from social_django.urls import urlpatterns as social_django_urls
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -38,7 +36,6 @@ urlpatterns = [
     path('account/', include("account.urls")),
     path('api/v1/', include("review.urls")),
     path('post/', include("post.urls")),
-    # path('social-auth/', include(social_django_urls, namespace='social')),
 ]
 
 
