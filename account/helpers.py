@@ -8,8 +8,6 @@ def send_spam(new_user):
 Ура!
 Вы зарегистрировались!
 
-{new_user.username}
-
 '''
     send_mail(
         subject="Привет!", 

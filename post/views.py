@@ -19,9 +19,11 @@ class PostViewSet(mixins.CreateModelMixin,
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated, IsAuthor]
-    # filter_backends = (SearchFilter, DjangoFilterBackend)
-    # filterset_fields = ('title',)
-    # search_fields = ('title', 'text')
+    filter_backends = (SearchFilter, DjangoFilterBackend)
+    filterset_fields = ('title',)
+    search_fields = ('title', 'text')
+
+    
 
 
 
