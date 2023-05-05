@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'main',
     'review',
     'post',
+    'social.apps.django_app.default',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -195,3 +197,19 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3001',
     'https://www.thunderclient.com',
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'google-key'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'google-secret'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email']
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {'access_type': 'offline'}
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'http://127.0.0.1:8000/complete/google-oauth2/'
+
+LOGIN_REDIRECT_URL = '/'
+

@@ -10,3 +10,6 @@ django-cors-headers
 celery
 redis
 gunicorn
+python-social-auth
+social-auth-app-django
+social-auth-core

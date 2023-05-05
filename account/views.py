@@ -17,10 +17,10 @@ class RegisterUserView(APIView):
         serializer.save()
         return Response("Вы успешно зарегестрировались", status=201)
     
-    # @api_view(['GET'])
-    # def activate_view(request, activation_code):
-    #     user = get_object_or_404(User, activation_code=activation_code)
-    #     user.is_active = True  # делаем активым
-    #     user.activation_code = ''  # удаляем активационный код
-    #     user.save()
-    #     return Response("Вы успешно активировали аккаунт", 200)
+@api_view(['GET'])
+def activate_view(request, activation_code):
+    user = get_object_or_404(User, activation_code=activation_code)
+    user.is_active = True  # делаем активым
+    user.activation_code = ''  # удаляем активационный код
+    user.save()
+    return Response("Вы успешно активировали аккаунт", 200)
