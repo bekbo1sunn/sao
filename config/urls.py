@@ -20,6 +20,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from review.views import toggle_like
 
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Python 23 API",
@@ -32,8 +33,10 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view.with_ui("swagger")),
-    path('api/v1/', include("account.urls")),
+    path('account/', include("account.urls")),
     path('api/v1/', include("review.urls")),
-    path('api/v1/', include("post.urls")),
-    
+    path('post/', include("post.urls")),
 ]
+
+
+
