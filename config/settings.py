@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'main',
     'review',
     'post',
+    'chat',
+    'channels',
+    'crispy_forms',
+    'bootstrap4',
+    'notifications',
 ]
 
 MIDDLEWARE = [

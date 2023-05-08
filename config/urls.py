@@ -15,16 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from review.views import toggle_like
+from django.conf import settings
+from django.conf.urls.static import static
 
+import notifications.urls
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Python 23 API",
-        description="makers bootcamp",
+        title="Социальная сеть",
+        description="Omur, Nurles, Mars, Bekbolsun",
         default_version="v1",
     ),
     public=True
@@ -33,10 +36,9 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view.with_ui("swagger")),
-    path('account/', include("account.urls")),
+    path('api/v1/', include("account.urls")),
     path('api/v1/', include("review.urls")),
-    path('post/', include("post.urls")),
+    path('api/v1/', include("post.urls")),
+    path('', include('chat.urls')),
+    re_path('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
 ]
-
-
-

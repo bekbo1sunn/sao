@@ -9,7 +9,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE, 
         related_name='comments'
         )
-    product = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
         related_name='comments'
@@ -25,7 +25,7 @@ class Rating(models.Model):
         on_delete=models.CASCADE,
         related_name='ratings'
     )
-    product = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
         related_name='ratings'
@@ -42,7 +42,7 @@ class Favorite(models.Model):
         on_delete=models.CASCADE, 
         related_name='favorites'
         )
-    product = models.ForeignKey(
+    post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
         related_name='favorites'
